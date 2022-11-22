@@ -67,6 +67,7 @@ public class ControllerFrameMain {
             mMProveedor.agregar(getPrecioActual(), getCantidadActual(), getIdProveedorMedicamento(), getIdMedicamento(), new Timestamp(System.currentTimeMillis()));
             idMedicamento++;
             clearBoxes();
+            vFrame.txtCodigoMedicamento.setText(String.valueOf(idMedicamento));
             JOptionPane.showMessageDialog(vFrame, "Medicamento registrado exitosamente");
         } else {
             JOptionPane.showMessageDialog(vFrame, "Medicamento NO registrado exitosamente");
@@ -88,6 +89,18 @@ public class ControllerFrameMain {
         } else {
             JOptionPane.showMessageDialog(null, "Busqueda fallida");
 
+        }
+    }
+
+    public void btnEliminarMedicamentoActionPerformed(ActionEvent evt) {
+        if (mMedicamento.eliminar(String.valueOf(mdto.getIdMedicamento())))
+        {
+            clearBoxes();
+            JOptionPane.showMessageDialog(null, "Eliminación exitosa");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Eliminación fallida");
         }
     }
 
@@ -125,7 +138,6 @@ public class ControllerFrameMain {
         vFrame.txtCproveedorMedicamento.setText("");
         cdto = null;
         pdto = null;
-        vFrame.txtCodigoMedicamento.setText(String.valueOf(idMedicamento));
         vFrame.txtNombreMedicamento.requestFocus();
     }
 
