@@ -106,6 +106,7 @@ public class ControllerFrameMain {
             JOptionPane.showMessageDialog(null, "Eliminación fallida");
         }
     }
+    
 
     //<editor-fold desc="getters and clearBoxes and tableListaMedicamento">
     public int getIdMedicamento() {
