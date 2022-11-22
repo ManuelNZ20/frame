@@ -64,6 +64,9 @@ public class ControllerFrameMain {
         vFrame.btnEliminarMedicamento.addActionListener((ActionEvent e) -> {
             btnEliminarMedicamentoActionPerformed(e);
         });
+        vFrame.btnActualizarMedicamento.addActionListener((ActionEvent e)->{
+            btnActualizarMedicamentoActionPerformed(e);
+        });
     }
 
     public void btnGuardarMedicamentoActionPerformed(ActionEvent evt) {

@@ -48,7 +48,7 @@ public class MedicamentoDAO implements Crud<MedicamentoDTO> {
     @Override
     public boolean actualizar(MedicamentoDTO t) {
         try {
-            ps = con.connect().prepareStatement("update Medicamento set nombre=?,precioActual=?,cantidadActual=?,idCategoria=?");
+            ps = con.connect().prepareStatement("update Medicamento set nombre=?,precioActual=?,cantidadActual=?,idCategoria=? where idMedicamento="+t.getIdMedicamento());
             ps.setString(1, t.getNombre());
             ps.setFloat(2, t.getPrecioActual());
             ps.setShort(3, t.getCantidadActual());
