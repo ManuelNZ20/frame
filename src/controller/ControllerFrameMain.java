@@ -56,8 +56,10 @@ public class ControllerFrameMain {
         vFrame.btnListarMedicamento.addActionListener((ActionEvent e) -> {
             btnListarMedicamentoActionPerformed(e);
         });
-        
-        
+
+        vFrame.btnBuscarMedicamento.addActionListener((ActionEvent e) -> {
+            btnBuscarMedicamentoActionPerformed(e);
+        });
     }
 
     public void btnGuardarMedicamentoActionPerformed(ActionEvent evt) {
@@ -73,6 +75,20 @@ public class ControllerFrameMain {
 
     public void btnListarMedicamentoActionPerformed(ActionEvent evt) {
         tableMedicamento();
+    }
+
+    public void btnBuscarMedicamentoActionPerformed(ActionEvent evt) {
+        mdto = mMedicamento.obtenerMedicamento(String.valueOf(getIdMedicamento()));
+        if (mdto != null) {
+            JOptionPane.showMessageDialog(null, "Busqueda exitosa de medicamento ");
+            vFrame.txtNombreMedicamento.setText(mdto.getNombre());
+            vFrame.txtPrecioMedicamento.setText(String.valueOf(mdto.getPrecioActual()));
+            vFrame.txtCantidadMedicamento.setText(String.valueOf(mdto.getCantidadActual()));
+            vFrame.txtCcategoriaMedicamento.setText(String.valueOf(mdto.getIdCategoria()));
+        } else {
+            JOptionPane.showMessageDialog(null, "Busqueda fallida");
+
+        }
     }
 
     //<editor-fold desc="getters and clearBoxes and tableListaMedicamento">
@@ -127,15 +143,14 @@ public class ControllerFrameMain {
     //</editor-fold>
 
     //</editor-fold>
-    
     //<editor-fold desc="Inventario">
     public void botonesInventario() {
-        vFrame.btnListarInventario.addActionListener((ActionEvent e)->{
+        vFrame.btnListarInventario.addActionListener((ActionEvent e) -> {
             btnListarInventarioActionPerformed(e);
         });
     }
-    
-    public void btnListarInventarioActionPerformed(ActionEvent evt){
+
+    public void btnListarInventarioActionPerformed(ActionEvent evt) {
         tableInventario();
     }
 
@@ -155,7 +170,6 @@ public class ControllerFrameMain {
     }
 
     //</editor-fold>
-    
     //<editor-fold desc="Crud-Categoria">
     public void botonesCategoria() {
         vFrame.btnGuardarCategoria.addActionListener((ActionEvent e) -> {
