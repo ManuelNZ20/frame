@@ -60,8 +60,8 @@ public class ControllerFrameMain {
         vFrame.btnBuscarMedicamento.addActionListener((ActionEvent e) -> {
             btnBuscarMedicamentoActionPerformed(e);
         });
-        
-        vFrame.btnEliminarMedicamento.addActionListener((ActionEvent e)->{
+
+        vFrame.btnEliminarMedicamento.addActionListener((ActionEvent e) -> {
             btnEliminarMedicamentoActionPerformed(e);
         });
     }
@@ -96,17 +96,25 @@ public class ControllerFrameMain {
     }
 
     public void btnEliminarMedicamentoActionPerformed(ActionEvent evt) {
-        if (mMedicamento.eliminar(String.valueOf(mdto.getIdMedicamento())))
-        {
+        if (mMedicamento.eliminar(String.valueOf(mdto.getIdMedicamento()))) {
             clearBoxes();
             JOptionPane.showMessageDialog(null, "Eliminación exitosa");
-        }
-        else
-        {
+        } else {
             JOptionPane.showMessageDialog(null, "Eliminación fallida");
         }
     }
-    
+
+    public void btnActualizarMedicamentoActionPerformed(ActionEvent evt) {
+        if (mdto != null) {
+            if (mMedicamento.actualizar(mdto.getIdMedicamento(), getNombreMedicamento(), getPrecioActual(), getCantidadActual(), getIdCategoriaMedicamento())) {
+                mdto = null;
+                clearBoxes();
+                JOptionPane.showMessageDialog(null, "Medicamento actualizados exitosamente");
+            } else {
+                JOptionPane.showMessageDialog(null, "Medicamento actualizados exitosamente");
+            }
+        }
+    }
 
     //<editor-fold desc="getters and clearBoxes and tableListaMedicamento">
     public int getIdMedicamento() {
