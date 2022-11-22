@@ -60,6 +60,10 @@ public class ControllerFrameMain {
         vFrame.btnBuscarMedicamento.addActionListener((ActionEvent e) -> {
             btnBuscarMedicamentoActionPerformed(e);
         });
+        
+        vFrame.btnEliminarMedicamento.addActionListener((ActionEvent e)->{
+            btnEliminarMedicamentoActionPerformed(e);
+        });
     }
 
     public void btnGuardarMedicamentoActionPerformed(ActionEvent evt) {
@@ -88,7 +92,6 @@ public class ControllerFrameMain {
             vFrame.txtCcategoriaMedicamento.setText(String.valueOf(mdto.getIdCategoria()));
         } else {
             JOptionPane.showMessageDialog(null, "Busqueda fallida");
-
         }
     }
 
